@@ -1,11 +1,4 @@
-/*
- * @name Follow 3
- * @arialabel Long segmented snake shape follows the user’s mouse as it moves 
- * @frame 710,400
- * @description A segmented line follows the mouse. The relative angle from
- * each segment to the next is calculated with atan2() and the position of
- * the next is calculated with sin() and cos(). Based on code from Keith Peters.
- */
+
 let x = [],
   y = [],
   segNum = 20,
@@ -17,13 +10,18 @@ for (let i = 0; i < segNum; i++) {
 }
 
 function setup() {
-  createCanvas(710, 400);
-  strokeWeight(9);
-  stroke(255, 100);
+  createCanvas(2400, 900);      
+  strokeWeight(10);            
+  stroke(255, 180);           
 }
-
+// change
 function draw() {
-  background(0);
+  background(0, 30);
+
+ 
+  let g = map(mouseX, 0, width, 120, 255); 
+  stroke(255, g, 80, 200);
+
   dragSegment(0, mouseX, mouseY);
   for (let i = 0; i < x.length - 1; i++) {
     dragSegment(i + 1, x[i], y[i]);
